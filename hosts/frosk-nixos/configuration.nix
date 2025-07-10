@@ -86,6 +86,12 @@
 
   programs.nix-ld.enable = true;
 
+  programs.ssh.extraConfig = " 
+    # Test if github.com works with ssh for cloning
+    Host github.com
+    IdentityFile ~/.ssh/nixdot
+  ";
+
   programs.ssh.startAgent = true;
 
   programs.thunar = {
