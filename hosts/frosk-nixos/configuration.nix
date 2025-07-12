@@ -60,7 +60,7 @@
   users.users.frosk = {
     isNormalUser = true;
     description = "frosk";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
     packages = with pkgs; [];
   };
 
@@ -82,7 +82,20 @@
     qbittorrent
     qimgv
     ntfs3g
+    font-awesome
   ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    nerd-fonts.ubuntu
+    roboto-mono
+    font-awesome
+  ];
+
+  programs.waybar.enable = true;
 
   programs.nix-ld.enable = true;
 

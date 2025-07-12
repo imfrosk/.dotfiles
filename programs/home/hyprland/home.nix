@@ -75,8 +75,8 @@ env = [
 
 # https://wiki.hyprland.org/Configuring/Variables/#general
 general = {
-    gaps_in = 5;
-    gaps_out = 20;
+    gaps_in = 4;
+    gaps_out = 6;
 
     border_size = 2;
 
@@ -307,6 +307,8 @@ windowrule = [
 "size 50% 65%, class:thunar"
 "float, class:firefox, title:Library"
 "workspace 2, class:firefox title:Mozilla Firefox"
+"float, class:Thunar"
+"size 50% 65%, class:Thunar"
 ];
     };
   };
