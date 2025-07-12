@@ -10,6 +10,7 @@
    #nixcats.url = "github:BirdeeHub/nixCats-nvim";
    nixcats.url = "path:/home/frosk/.dotfiles/programs/system/nvim";
    nix-alien.url = "github:thiagokokada/nix-alien";
+   ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, nix-alien, ... }@inputs: 
@@ -40,6 +41,7 @@
         inherit pkgs; 
         modules = [ 
         ./hosts/frosk-nixos/home.nix
+        inputs.ags.homeManagerModules.default
         ];
       };
     };
