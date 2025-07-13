@@ -92,7 +92,18 @@
 
   programs.steam.enable = true;
 
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+      cpu = {
+        park_cores= "no";
+        pin_cores = "yes";
+      };
+    };
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts
