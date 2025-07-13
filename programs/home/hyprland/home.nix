@@ -312,6 +312,7 @@ windowrule = [
 "workspace 2, class:firefox title:Mozilla Firefox"
 "float, class:Thunar"
 "size 50% 65%, class:Thunar"
+"float, title:Steam Settings"
 ];
     };
   };
