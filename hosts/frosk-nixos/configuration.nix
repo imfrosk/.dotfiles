@@ -60,7 +60,7 @@
   users.users.frosk = {
     isNormalUser = true;
     description = "frosk";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" "gamemode" ];
     packages = with pkgs; [];
   };
 
@@ -91,6 +91,8 @@
   ];
 
   programs.steam.enable = true;
+
+  programs.gamemode.enable = true;
 
   programs.opengamepadui = {
     enable = true;

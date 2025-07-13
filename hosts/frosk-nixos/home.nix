@@ -32,6 +32,14 @@
     };
   };
 
+  programs.mangohud = {
+    enable = true;
+    settings = {
+     fps_limit = 75;
+     full = true;
+    };
+  };
+
   programs.mpv.enable = true;
   
   #home.sessionVariables = {
