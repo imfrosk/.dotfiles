@@ -83,7 +83,20 @@
     qimgv
     ntfs3g
     font-awesome
+    lutris
+    p7zip
+    unzip
+    openssl
+    putty
   ];
+
+  programs.steam.enable = true;
+
+  programs.opengamepadui = {
+    enable = true;
+    gamescopeSession.enable = true;
+    extraPackages = [ pkgs.gamescope ];
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts
