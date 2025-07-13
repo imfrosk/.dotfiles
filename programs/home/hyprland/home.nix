@@ -13,11 +13,11 @@ in
       settings = {
         ipc = "on";
         preload = [
-          "~/.dotfiles/other/wallpapers/On-the-edge-on-the-DS(anime).jpg"
+          "~/.dotfiles/other/wallpapers/On-the-edge-on-the-DS.png"
         ];
 
         wallpaper = [
-          ",~/.dotfiles/other/wallpapers/On-the-edge-on-the-DS(anime).jpg"
+          ",~/.dotfiles/other/wallpapers/On-the-edge-on-the-DS.png"
         ];
       };
     };
@@ -217,6 +217,9 @@ device = {
     sensitivity = -0.5;
 };
 
+debug = {
+    full_cm_proto = true;
+};
 
 ###################
 ### KEYBINDINGS ###

@@ -42,6 +42,7 @@
     enable = true;
   };
 
+  yt-dlp.enable = true;
 
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
