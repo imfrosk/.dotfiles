@@ -79,6 +79,7 @@
     blender
     orca-slicer
     inputs.nixcats.packages.${system}.nixCats
+    inputs.swww.packages.${pkgs.system}.swww
     qbittorrent
     qimgv
     ntfs3g
@@ -88,7 +89,10 @@
     unzip
     openssl
     putty
+    libsForQt5.ark
   ];
+
+  programs.appimage.enable = true;
 
   programs.steam.enable = true;
 

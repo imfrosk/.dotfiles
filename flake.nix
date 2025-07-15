@@ -7,13 +7,11 @@
    home-manager.inputs.nixpkgs.follows = "nixpkgs";
    nixpkgs.url = "nixpkgs/nixos-unstable";
    hyprland.url = "github:hyprwm/Hyprland";
-   #nixcats.url = "github:BirdeeHub/nixCats-nvim";
    nixcats.url = "path:/home/frosk/.dotfiles/programs/system/nvim";
-   nix-alien.url = "github:thiagokokada/nix-alien";
-   ags.url = "github:Aylur/ags";
+   swww.url = "github:LGFae/swww";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, nix-alien, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
