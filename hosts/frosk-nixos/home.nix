@@ -21,13 +21,14 @@
     '';
     shellAliases = {
       nano = "nixCats";
+      v = "nixCats";
       vi = "nixCats";
       vim = "nixCats";
       ".." = "cd ..";
       la = "ls -la";
-      flake-rebuild = "sudo nixos-rebuild switch --flake /home/frosk/.dotfiles";
-      home-switch = "home-manager switch --flake /home/frosk/.dotfiles";
-      cdhosts = "cd /home/frosk/.dotfiles/hosts/frosk-nixos/";
+      fr = "sudo nixos-rebuild switch --flake /home/frosk/.dotfiles";
+      hms = "home-manager switch --flake /home/frosk/.dotfiles";
+      cdh = "cd /home/frosk/.dotfiles/hosts/frosk-nixos/";
       nix-alien = "nix run \"github:thiagokokada/nix-alien#nix-alien\" -- ";
     };
   };
