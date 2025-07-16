@@ -8,12 +8,23 @@ in
     enable = mkEnableOption "Enable hyprland home configuration";
   };
   config = mkIf cfg.enable { 
-    #services.hyprpaper.enable = true;
-    #wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland = {
+      enable = true;
+      extraConfig = ''
+        source = ~/.config/hypr/main.conf
+      '';
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+      ];
+    };
+    #home.activation.hyprlandSymlink = ''
+    #  ln -sfn "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/hypr.conf" \
+    #    "${config.home.homeDirectory}/.config/hypr/hypr.conf"
+    #'';
     home.file = {
-    ".config/hypr/hyprland.conf" = {
+    ".config/hypr/main.conf" = {
       source = config.lib.file.mkOutOfStoreSymlink 
-        "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/hypr.conf";
+        "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/hyprland.conf";
     };
   };
   };
