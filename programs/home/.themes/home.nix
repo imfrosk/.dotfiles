@@ -7,7 +7,7 @@
     gtk.enable = true;
     package = pkgs.google-cursor;
     name = "GoogleDot-Black";
-    size = 24;
+    size = 18;
   };
   gtk = {
     enable = true;
