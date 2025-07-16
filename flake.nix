@@ -39,7 +39,6 @@
         inherit pkgs; 
         modules = [ 
         ./hosts/frosk-nixos/home.nix
-        inputs.ags.homeManagerModules.default
         ];
       };
     };
