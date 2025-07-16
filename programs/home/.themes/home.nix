@@ -5,8 +5,8 @@
   };
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.whitesur-cursors;
-    name = "WhiteSur-cursors";
+    package = pkgs.google-cursor;
+    name = "GoogleDot-Black";
     size = 24;
   };
   gtk = {
