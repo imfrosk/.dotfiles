@@ -72,7 +72,6 @@
     nano vim git neofetch wget kitty firefox
     rofi-wayland
     vesktop keepassxc
-    hiddify-app
     obsidian
     pavucontrol
     godot_4_4
@@ -89,7 +88,6 @@
     unzip
     openssl
     putty
-    libsForQt5.ark
   ];
 
   programs.appimage.enable = true;
@@ -130,11 +128,6 @@
   ";
 
   programs.ssh.startAgent = true;
-
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
-  };
 
   hyprland = {
     enable = true;
