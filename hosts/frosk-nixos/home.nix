@@ -26,10 +26,13 @@
       vim = "nixCats";
       ".." = "cd ..";
       la = "ls -la";
-      fr = "sudo nixos-rebuild switch --flake /home/frosk/.dotfiles";
-      hms = "home-manager switch --flake /home/frosk/.dotfiles";
-      cdh = "cd /home/frosk/.dotfiles/hosts/frosk-nixos/";
-      nix-alien = "nix run \"github:thiagokokada/nix-alien#nix-alien\" -- ";
+      fr = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+      hms = "home-manager switch --flake ~/.dotfiles";
+      cdh = "cd ~/.dotfiles/hosts/frosk-nixos/";
+      hyprm = "vi ~/.dotfiles/programs/home/hyprland/config/hyprland.conf";
+      hyprd = "cd ~/.dotfiles/programs/home/hyprland/";
+      ch = "cd ~/.dotfiles/programs/home";
+      cs = "cd ~/.dotfiles/programs/system";
     };
   };
 
