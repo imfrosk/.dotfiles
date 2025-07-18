@@ -88,6 +88,7 @@
     unzip
     openssl
     putty
+    hyprshot
   ];
 
   programs.appimage.enable = true;
