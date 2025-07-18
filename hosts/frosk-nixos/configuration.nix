@@ -90,6 +90,7 @@
     putty
     hyprshot
     jq
+    gitkraken
   ];
 
   programs.appimage.enable = true;
@@ -118,6 +119,8 @@
     roboto-mono
     font-awesome
   ];
+
+  programs.file-roller.enable = true;
 
   programs.waybar.enable = true;
 
