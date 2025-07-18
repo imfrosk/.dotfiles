@@ -90,8 +90,9 @@
     putty
     hyprshot
     jq
-    gitkraken
   ];
+
+  programs.lazygit.enable = true;
 
   programs.appimage.enable = true;
 
