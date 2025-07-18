@@ -89,6 +89,7 @@
     openssl
     putty
     hyprshot
+    jq
   ];
 
   programs.appimage.enable = true;
