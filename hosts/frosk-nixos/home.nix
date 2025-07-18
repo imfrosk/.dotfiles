@@ -12,6 +12,18 @@
 
   nixpkgs.config.allowUnfree = true; 
 
+  services.swayosd.enable = true;
+
+  #services.flameshot = {
+  #  enable = true;
+  #  settings = {
+  #    General = {
+  #      #useGrimAdapter = true;
+  #      disabledGrimWarning = true;
+  #    };
+  #  };
+  #};
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
