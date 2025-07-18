@@ -27,6 +27,10 @@ in
       source = config.lib.file.mkOutOfStoreSymlink 
         "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/hyprland.conf";
     };
+    ".config/hypr/generated-windowrules.conf" = {
+      source = config.lib.file.mkOutOfStoreSymlink 
+        "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/generated-windowrules.conf";
+    };
   };
   };
 }
