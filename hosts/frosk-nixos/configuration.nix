@@ -33,12 +33,10 @@
     };
   };
 
-  
   swapDevices = [{
     device = "/swapfile";
     size = 16 * 1024; # 16GB
   }];
-
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -157,8 +155,6 @@
     # If you want to use JACK applications, uncomment the following
     #jack.enable = true;
   };
-
-
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
