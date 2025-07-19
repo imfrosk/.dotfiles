@@ -97,6 +97,7 @@
     putty
     hyprshot
     jq
+    gimp
   ];
 
   programs.lazygit.enable = true;
