@@ -25,7 +25,6 @@
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
@@ -33,31 +32,17 @@
         specialArgs = { inherit inputs self system; };
         modules = [ 
         ./hosts/frosk-nixos/configuration.nix
-
-        # nix-alien
-        #({ self, system, ... }: {
-        #    environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
-        #      nix-alien
-        #    ];
-        #    programs.nix-ld.enable = true;
-        #  })
         ];
       };
      };
     homeConfigurations = { 
       frosk = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs; 
+        pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs; };
         modules = [ 
         ./hosts/frosk-nixos/home.nix
         ];
       };
     };
-    #packages."x86_64-linux".default = 
-    #  (nvf.lib.neovimConfiguration {
-    #    inherit pkgs;
-#	modules = [ ./programs/home/nvf/default.nix ];
-#      }).neovim;
   };
-
 }
