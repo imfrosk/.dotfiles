@@ -60,8 +60,8 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  
+    # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.frosk = {
     isNormalUser = true;
     description = "frosk";
@@ -101,21 +101,6 @@
   programs.lazygit.enable = true;
 
   programs.appimage.enable = true;
-
-  programs.steam.enable = true;
-
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      general = {
-        renice = 10;
-      };
-      cpu = {
-        park_cores= "no";
-        pin_cores = "yes";
-      };
-    };
-  };
 
   fonts.packages = with pkgs; [
     noto-fonts

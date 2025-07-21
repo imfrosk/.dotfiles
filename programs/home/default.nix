@@ -3,6 +3,6 @@
 {
   imports = [
     ./hyprland/default.nix
-    #./thunar/default.nix
+    ./gaming/default.nix
   ];
 }
