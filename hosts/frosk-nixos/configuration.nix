@@ -96,6 +96,7 @@
     hyprshot
     jq
     gimp
+    inputs.quickshell.packages.${system}.default
   ];
 
   programs.lazygit.enable = true;
