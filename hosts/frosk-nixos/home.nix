@@ -45,6 +45,7 @@
       hyprd = "cd ~/.dotfiles/programs/home/hyprland/";
       ch = "cd ~/.dotfiles/programs/home";
       cs = "cd ~/.dotfiles/programs/system";
+      lg = "lazygit -p ~/.dotfiles";
     };
   };
 
