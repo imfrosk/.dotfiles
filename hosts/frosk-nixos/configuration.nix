@@ -97,6 +97,7 @@
     jq
     gimp
     inputs.quickshell.packages.${system}.default
+    telegram-desktop
   ];
 
   programs.lazygit.enable = true;
