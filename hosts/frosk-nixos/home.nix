@@ -57,6 +57,8 @@
     };
   };
 
+  programs.vscode.enable = true;
+
   programs.mpv.enable = true;
   
   #home.sessionVariables = {
