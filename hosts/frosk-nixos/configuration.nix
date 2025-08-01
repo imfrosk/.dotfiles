@@ -113,6 +113,9 @@
     gimp
     inputs.quickshell.packages.${system}.default
     telegram-desktop
+    obs-studio
+    puddletag
+    gparted
     hyprpolkitagent
   ];
 
