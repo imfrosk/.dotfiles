@@ -100,6 +100,8 @@
     telegram-desktop
   ];
 
+  security.polkit.enable = true;
+
   zapret.enable = true;
 
   networking.nftables= {
