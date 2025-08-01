@@ -98,6 +98,7 @@
     gimp
     inputs.quickshell.packages.${system}.default
     telegram-desktop
+    hyprpolkitagent
   ];
 
   security.polkit.enable = true;
