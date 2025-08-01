@@ -102,6 +102,10 @@
 
   zapret.enable = true;
 
+  networking.nftables= {
+  enable = true;
+  };
+
   programs.lazygit.enable = true;
 
   programs.appimage.enable = true;
