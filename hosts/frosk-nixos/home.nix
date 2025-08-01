@@ -46,6 +46,7 @@
       ch = "cd ~/.dotfiles/programs/home";
       cs = "cd ~/.dotfiles/programs/system";
       lg = "lazygit -p ~/.dotfiles";
+      zp = "bash ~/.clone/zapret-discord-youtube-linux/main_script.sh";
     };
   };
 
