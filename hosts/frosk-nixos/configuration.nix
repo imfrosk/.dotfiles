@@ -117,6 +117,12 @@
     puddletag
     gparted
     hyprpolkitagent
+    
+    # Screenshots
+    grim
+    swappy
+    slurp
+    wl-clipboard-rs
   ];
 
   security.polkit.enable = true;
