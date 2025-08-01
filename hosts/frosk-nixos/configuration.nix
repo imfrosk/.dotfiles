@@ -113,6 +113,7 @@
     gimp
     inputs.quickshell.packages.${system}.default
     telegram-desktop
+    feishin
     obs-studio
     puddletag
     gparted
@@ -128,6 +129,8 @@
   security.polkit.enable = true;
 
   zapret.enable = true;
+
+  navidrome.enable = true;
 
   networking.nftables= {
   enable = true;
