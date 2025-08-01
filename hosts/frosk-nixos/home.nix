@@ -50,6 +50,8 @@
     };
   };
 
+  services.easyeffects.enable = true;
+
   programs.mangohud = {
     enable = true;
     settings = {
