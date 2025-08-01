@@ -100,6 +100,8 @@
     telegram-desktop
   ];
 
+  zapret.enable = true;
+
   programs.lazygit.enable = true;
 
   programs.appimage.enable = true;
