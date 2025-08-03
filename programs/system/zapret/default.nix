@@ -7,7 +7,7 @@
     options.zapret.enable = lib.mkEnableOption "enables zapret";
     
     config = lib.mkIf config.zapret.enable {
-      networking.nftables.enable = lib.mkForce false;
+      #networking.nftables.enable = lib.mkForce false;
       services.zapret = {
         enable = true;
         udpSupport = true;
