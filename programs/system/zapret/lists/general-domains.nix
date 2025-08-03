@@ -51,6 +51,7 @@ betterttv.net
 ntc.party
 medium.com
 proton.me
+musicbrainz.org
 "
  ];
 }
