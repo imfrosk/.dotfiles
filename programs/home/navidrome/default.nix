@@ -10,6 +10,7 @@
       enable = true;
       settings = {
         MusicFolder = "/mnt/hdd/music";
+        Address = "0.0.0.0";
       };
     };
   };
