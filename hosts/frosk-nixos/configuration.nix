@@ -127,6 +127,11 @@
     slurp
     wl-clipboard-rs
   ];
+  
+  # figure out later
+  nixpkgs.config.permittedInsecurePackages = [ 
+    "libsoup-2.74.3"
+  ];
 
   programs.adb.enable = true;
 
