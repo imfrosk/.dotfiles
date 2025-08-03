@@ -49,8 +49,7 @@
 
 
   swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024; # 16GB
+    device = "/dev/disk/by-uuid/f8ec64dd-f4a1-45bb-9056-6a5f52c26ffd";
   }];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -80,7 +79,7 @@
   users.users.frosk = {
     isNormalUser = true;
     description = "frosk";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" "gamemode" ];
+    extraGroups = [ "adbusers" "networkmanager" "wheel" "video" "audio" "input" "gamemode" ];
     packages = with pkgs; [];
   };
 
@@ -118,7 +117,10 @@
     puddletag
     gparted
     hyprpolkitagent
-    
+    lrcget
+    picard
+    gnirehtet
+   
     # Screenshots
     grim
     swappy
@@ -126,15 +128,17 @@
     wl-clipboard-rs
   ];
 
+  programs.adb.enable = true;
+
   security.polkit.enable = true;
 
   zapret.enable = true;
 
   navidrome.enable = true;
 
-  networking.nftables= {
-  enable = true;
-  };
+  #networking.nftables= {
+  #  enable = true;
+  #};
 
   programs.lazygit.enable = true;
 
@@ -195,11 +199,10 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
