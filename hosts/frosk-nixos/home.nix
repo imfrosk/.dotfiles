@@ -47,6 +47,7 @@
       cs = "cd ~/.dotfiles/programs/system";
       lg = "lazygit -p ~/.dotfiles";
       zp = "bash ~/.clone/zapret-discord-youtube-linux/main_script.sh";
+      hmsmime = "rm ~/.config/mimeapps.list.backup && home-manager switch --flake ~/.dotfiles -b backup";
     };
   };
 
