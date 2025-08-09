@@ -147,13 +147,13 @@
 
   security.polkit.enable = true;
 
-  zapret.enable = true;
+  zapret.enable = false;
 
   navidrome.enable = true;
 
-  #networking.nftables= {
-  #  enable = true;
-  #};
+  networking.nftables= {
+    enable = true;
+  };
 
   programs.lazygit.enable = true;
 
