@@ -133,6 +133,10 @@
     "libsoup-2.74.3"
   ];
 
+  sing-box = {
+    enable = true;
+  };
+
   programs.adb.enable = true;
 
   security.polkit.enable = true;
