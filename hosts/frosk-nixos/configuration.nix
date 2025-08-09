@@ -122,6 +122,10 @@
     lrcget
     picard
     gnirehtet
+    anki
+    ankiAddons.anki-connect
+    btop-cuda
+    filezilla
    
     # Screenshots
     grim
