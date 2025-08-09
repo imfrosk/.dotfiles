@@ -7,6 +7,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    #zen-browser = {
+    #  url = "github:0xc000022070/zen-browser-flake";
+    #  # IMPORTANT: needs to be nixos-unstable
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
