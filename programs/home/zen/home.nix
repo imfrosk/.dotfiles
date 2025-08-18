@@ -11,6 +11,11 @@
       Preferences = {
         "general.autoScroll"."Value" = true;
         "browser.startup.page" = 3;
+        "media.ffmpeg.vaapi.enabled" = true;
+        "gfx.webrender.all" = true;
+        "media.eme.enabled" = true;
+        "media.gmp-widevinecdm.enabled" = true;
+        "media.gmp-widevinecdm.visible" = true;
       };
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
