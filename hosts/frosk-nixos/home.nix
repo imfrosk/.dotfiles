@@ -51,13 +51,13 @@
     };
   };
 
-  services.easyeffects.enable = true;
+  services.easyeffects.enable = false;
 
   programs.mangohud = {
     enable = true;
     settings = {
-     fps_limit = 75;
-     full = true;
+     fps_limit = 150;
+     preset = 0;
     };
   };
 
@@ -65,10 +65,6 @@
 
   programs.mpv.enable = true;
   
-  #home.sessionVariables = {
-  #  XDG_DATA_DIRS = "/home/frosk/.dotfiles/other/.desktop:${config.environment.variables.XDG_DATA_DIRS or ""}";
-  #};
-
   hyprland = {
     enable = true;
   };
