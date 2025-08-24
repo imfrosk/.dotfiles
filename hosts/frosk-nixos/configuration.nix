@@ -107,6 +107,8 @@
     EGL_PLATFORM = "wayland";
   };
   
+  hardware.opentabletdriver.enable = true;
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -158,15 +160,6 @@
     wl-clipboard-rs
   ];
   
-  # figure out later
-  nixpkgs.config.permittedInsecurePackages = [ 
-    "libsoup-2.74.3"
-  ];
-
-  sing-box = {
-    enable = true;
-  };
-
   programs.adb.enable = true;
 
   security.polkit.enable = true;
