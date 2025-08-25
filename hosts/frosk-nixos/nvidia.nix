@@ -30,7 +30,7 @@
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
-      nvidiaSettings = false;
+      nvidiaSettings = true;
       open = false;
       videoAcceleration = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
