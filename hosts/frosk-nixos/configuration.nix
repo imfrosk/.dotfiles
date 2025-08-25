@@ -19,6 +19,7 @@
   # Bootloader.
   boot = { 
     kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "ntfs" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -34,18 +35,18 @@
   };
 
   fileSystems."/mnt/hdd" =
-    { device = "/dev/disk/by-uuid/897028d3-3f43-49f3-a6f9-4af6e83a0665";
-      fsType = "ext4";
-      options = [ "nofail" "defaults" ];
-      noCheck = false;
+    { device = "/dev/disk/by-uuid/652140FF608D5959";
+      fsType = "ntfs";
+      options = [ "rw" "uid=1000" "gid=100" "umask=022" "nofail" ];
+      #noCheck = false;
     };
 
   # for /mnt/hdd to be user owned
   # idk if it works if reinstall system
   # need to find better way
-  systemd.tmpfiles.rules = [
-    "d /mnt/hdd 0775 frosk users - -"
-  ];
+  #systemd.tmpfiles.rules = [
+  #  "d /mnt/hdd 0775 frosk users - -"
+  #];
 
 
   swapDevices = [{
