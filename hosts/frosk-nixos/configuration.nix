@@ -84,10 +84,6 @@
     packages = with pkgs; [];
   };
 
-  sunshine = {
-    enable = false;
-  };
-
   programs.firefox = {
     package = pkgs.firefox-bin;
     enable = true;
@@ -153,6 +149,9 @@
     libva-utils
     vdpauinfo
     aseprite
+    xarchiver
+    peazip
+    unrar
    
     # Screenshots
     grim
@@ -161,11 +160,7 @@
     wl-clipboard-rs
   ];
   
-  programs.adb.enable = true;
-
   security.polkit.enable = true;
-
-  zapret.enable = false;
 
   navidrome.enable = true;
 
@@ -187,7 +182,6 @@
     font-awesome
   ];
 
-  programs.file-roller.enable = true;
 
   programs.waybar.enable = true;
 
