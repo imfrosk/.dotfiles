@@ -10,7 +10,12 @@
       enable = true;
       settings = {
         MusicFolder = "/mnt/hdd/music";
+        #DataFolder = "/home/frosk/.xf/.pst/navidrome";
         Address = "0.0.0.0";
+
+        Backup.Path = "/home/frosk/.xf/backups/Programs/navidrome";
+        Backup.Count = "6";
+        Backup.Schedule = "0 0 * * *";
       };
     };
   };
