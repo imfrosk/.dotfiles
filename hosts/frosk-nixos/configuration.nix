@@ -152,6 +152,7 @@
     xarchiver
     peazip
     unrar
+    krita
    
     # Screenshots
     grim
