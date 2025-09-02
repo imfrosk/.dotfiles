@@ -84,23 +84,23 @@
     packages = with pkgs; [];
   };
 
-  programs.firefox = {
-    package = pkgs.firefox-bin;
-    enable = true;
-    preferences = {
-      "media.ffmpeg.vaapi.enabled" = true;
-      "gfx.webrender.all" = true;
-      "media.eme.enabled" = true;
-      "media.gmp-widevinecdm.enabled" = true;
-      "media.gmp-widevinecdm.visible" = true;
-    };
-    policies = {
-      HardwareAcceleration = true; 
-    };
-  };
+  #programs.firefox = {
+  #  package = pkgs.firefox-bin;
+  #  enable = true;
+  #  preferences = {
+  #    "media.ffmpeg.vaapi.enabled" = true;
+  #    "gfx.webrender.all" = true;
+  #    "media.eme.enabled" = true;
+  #    "media.gmp-widevinecdm.enabled" = true;
+  #    "media.gmp-widevinecdm.visible" = true;
+  #  };
+  #  policies = {
+  #    HardwareAcceleration = true; 
+  #  };
+  #};
   environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-    MOZ_DISABLE_RDD_SANDBOX = "1";
+  #  MOZ_ENABLE_WAYLAND = "1";
+  #  MOZ_DISABLE_RDD_SANDBOX = "1";
     EGL_PLATFORM = "wayland";
   };
   
@@ -141,7 +141,7 @@
     lrcget
     picard
     gnirehtet
-    anki
+    anki-bin
     ankiAddons.anki-connect
     btop-cuda
     filezilla
