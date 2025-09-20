@@ -210,8 +210,15 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment the following
-    #jack.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
+    extraConfig.pipewire = {
+      "context.properties" = {
+        "default.clock.quantum" = 64;  # Reduce from default 1024
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 1024;
+      };
+    };
   };
 
   services.gvfs.enable = true;
