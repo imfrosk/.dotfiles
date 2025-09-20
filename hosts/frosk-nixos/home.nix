@@ -24,6 +24,16 @@
   #  };
   #};
 
+  xdg.desktopEntries = {
+    OBS = {
+      name = "OBS";
+      genericName = "with replay buffer";
+      exec = "obs --startreplaybuffer";
+      terminal = false;
+      categories = [ "Application" ];
+    };
+  };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
@@ -56,8 +66,8 @@
   programs.mangohud = {
     enable = true;
     settings = {
-     fps_limit = 150;
-     preset = 0;
+     fps_limit = 75;
+     preset = 4;
     };
   };
 
