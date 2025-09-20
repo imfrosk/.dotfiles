@@ -9,7 +9,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./nvidia.nix
+      #./nvidia.nix
+      ./amd-gpu.nix
       ./../../programs/system/default.nix
       ./../../programs/home/default.nix
     ];
@@ -143,7 +144,7 @@
     gnirehtet
     anki-bin
     ankiAddons.anki-connect
-    btop-cuda
+    btop
     filezilla
     libva
     libva-utils
@@ -153,7 +154,9 @@
     peazip
     unrar
     krita
-   
+    tesseract
+    rocmPackages.rocm-smi
+    
     # Screenshots
     grim
     swappy
