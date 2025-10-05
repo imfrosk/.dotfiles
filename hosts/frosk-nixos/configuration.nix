@@ -111,7 +111,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     nano vim git neofetch wget kitty brave
-    rofi-wayland
+    openscad-unstable
+    inkscape
+    rofi
     vesktop keepassxc
     obsidian
     pavucontrol
@@ -156,6 +158,8 @@
     krita
     tesseract
     rocmPackages.rocm-smi
+    modrinth-app
+    jdk24
     
     # Screenshots
     grim
