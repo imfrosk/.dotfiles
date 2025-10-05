@@ -58,6 +58,10 @@
       lg = "lazygit -p ~/.dotfiles";
       zp = "bash ~/.clone/zapret-discord-youtube-linux/main_script.sh";
       hmsmime = "rm ~/.config/mimeapps.list.backup && home-manager switch --flake ~/.dotfiles -b backup";
+      sr = "sudo systemctl restart sing-box.service";
+      sy = "sudo systemctl";
+      syre = "sudo systemctl restart";
+      sys = "sudo systemctl status";
     };
   };
 

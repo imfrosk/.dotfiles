@@ -2,8 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
-
+{ config, pkgs, inputs, lib, ... }:
+let
+  myUser = "frosk";
+in
 {
   # Baza
   imports =
@@ -33,6 +35,19 @@
          configurationLimit = 15;
       };
     };
+  };
+
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/systemctl restart sing-box.service";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }];
   };
 
   fileSystems."/mnt/hdd" =
@@ -107,7 +122,14 @@
   
   hardware.opentabletdriver.enable = true;
   
-  # List packages installed in system profile. To search, run:
+  system.sing-box = {
+    enable = true;
+    configDir = "${config.users.users.${myUser}.home}/.xf/.secrets/sing-box/configs";
+    workingDir = "${config.users.users.${myUser}.home}/.xf/.secrets/sing-box/";
+    user = "frosk";
+    group = "users";
+  };
+  
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     nano vim git neofetch wget kitty brave
