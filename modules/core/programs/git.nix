@@ -16,7 +16,7 @@ in
       programs.git = {
         enable = true;
         userName = cfg.userName;
-        userEmail = "ash@mail";
+        userEmail = "nockre96@gmail.com";
         extraConfig = {
           init.defaultBranch = "main";
         };
