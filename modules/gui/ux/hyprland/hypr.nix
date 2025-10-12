@@ -1,10 +1,10 @@
 { pkgs, lib, config, inputs, myUser, ... }:
 with lib;
 let
-  cfg = config.gui.ux.wm.hyprland;
+  cfg = config.gui.ux.hyprland;
 in
 {
-  options.gui.ux.wm.hyprland = {
+  options.gui.ux.hyprland = {
     enable = lib.mkEnableOption "Enables hyprland";
     uwsm = lib.mkEnableOption "Enables UWSM"; 
   };
@@ -45,11 +45,11 @@ in
           home.file = {
             ".config/hypr/main.conf" = {
               source = config.lib.file.mkOutOfStoreSymlink 
-                "${config.home.homeDirectory}/.dotfiles/modules/gui/ux/wm/hyprland/config/hyprland.conf";
+                "${config.home.homeDirectory}/.dotfiles/modules/gui/ux/hyprland/config/hyprland.conf";
             };
             ".config/hypr/generated-windowrules.conf" = {
               source = config.lib.file.mkOutOfStoreSymlink 
-                "${config.home.homeDirectory}/.dotfiles/modules/gui/ux/wm/hyprland/config/generated-windowrules.conf";
+                "${config.home.homeDirectory}/.dotfiles/modules/gui/ux/hyprland/config/generated-windowrules.conf";
             };
           };
       };

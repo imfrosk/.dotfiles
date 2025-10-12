@@ -46,21 +46,23 @@
         vi = "nixCats";
         vim = "nixCats";
         ".." = "cd ..";
+        "..." = "cd ./../../";
         la = "ls -la";
         fr = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-        hms = "home-manager switch --flake ~/.dotfiles";
         cdh = "cd ~/.dotfiles/host/";
-        hyprm = "vi ~/.dotfiles/programs/home/hyprland/config/hyprland.conf";
-        hyprd = "cd ~/.dotfiles/programs/home/hyprland/";
+        hyprm = "vi ~/.dotfiles/modules/gui/ux/hyprland/config/hyprland.conf";
+        hyprd = "cd ~/.dotfiles/modules/gui/ux/hyprland/";
+
         cg = "cd ~/.dotfiles/modules/gui";
+        cga = "cd ~/.dotfiles/modules/gui/apps";
+        cgu = "cd ~/.dotfiles/modules/gui/ux/";
         cc = "cd ~/.dotfiles/modules/core";
+        cch = "cd ~/.dotfiles/modules/core/hardware/";
+        ccp = "cd ~/.dotfiles/modules/core/programs/";
+        ccs = "cd ~/.dotfiles/modules/core/services/";
+
         lg = "lazygit -p ~/.dotfiles";
-        zp = "bash ~/.clone/zapret-discord-youtube-linux/main_script.sh";
-        hmsmime = "rm ~/.config/mimeapps.list.backup && home-manager switch --flake ~/.dotfiles -b backup";
         sr = "sudo systemctl restart sing-box.service";
-        sy = "sudo systemctl";
-        syre = "sudo systemctl restart";
-        sys = "sudo systemctl status";
       };
     };
   };

@@ -56,13 +56,11 @@
       #zen-browser.enable = false;
     };
     ux = {
-      wm = {
-        hyprland = {
-          enable = true;
-          uwsm = true;
-        };
-      };
       quickshell.enable = false;
+      hyprland = {
+        enable = true;
+        uwsm = true;
+      };
     };
   };
 

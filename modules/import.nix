@@ -19,7 +19,7 @@
     ./gui/apps/nemo.nix
     #./gui/apps/zen-browser.nix
 
-    ./gui/ux/wm/hyprland/hypr.nix
+    ./gui/ux/hyprland/hypr.nix
     ./gui/ux/quickshell/quickshell.nix
 
     ./gui/gaming/default.nix
