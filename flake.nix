@@ -1,17 +1,17 @@
 {
 
-  description = "zaebis flake";
+  description = "main flake";
 
   inputs = {
     home-manager.url = "github:nix-community/home-manager/master"; 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    #zen-browser = {
-    #  url = "github:0xc000022070/zen-browser-flake";
-    #  # IMPORTANT: needs to be nixos-unstable
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: needs to be nixos-unstable
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.51.0";
@@ -31,7 +31,7 @@
        inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcats.url = "path:/home/frosk/.dotfiles/programs/system/nvim";
+    nixcats.url = "path:/home/frosk/.dotfiles/modules/core/programs/nvim";
     swww.url = "github:LGFae/swww";
    };
 
@@ -39,24 +39,38 @@
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-    in {
+    in 
+    {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      ash = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs self system; };
-        modules = [ 
-        ./hosts/frosk-nixos/configuration.nix
-        ];
-      };
-     };
-    homeConfigurations = { 
-      frosk = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ 
-        ./hosts/frosk-nixos/home.nix
+        specialArgs = { inherit inputs self system; 
+        myUser = "frosk"; 
+        };
+        modules =
+        [ 
+          ./host/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.frosk = import ./host/home.nix;
+              backupFileExtension = "backup";
+            };
+          }
         ];
       };
     };
-  };
+    #homeConfigurations = { 
+    #  frosk = home-manager.lib.homeManagerConfiguration {
+    #    pkgs = nixpkgs.legacyPackages.${system};
+    #    extraSpecialArgs = { inherit inputs; };
+    #    modules = [ 
+    #    ./host/home.nix
+    #    ];
+    #  };
+    #};
+    };
 }
