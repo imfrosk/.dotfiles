@@ -33,7 +33,10 @@
       };
     };
     programs = {
-      git.enable = true;
+      git = {
+        enable = true;
+        userName = "frosk";
+      };
       yt-dlp.enable = true;
     };
     services = {
