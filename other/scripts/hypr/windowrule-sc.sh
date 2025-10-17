@@ -6,7 +6,7 @@
 
 # Configuration
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/hypr"
-RULES_FILE="${HOME}/.dotfiles/programs/home/hyprland/config/generated-windowrules.conf"
+RULES_FILE="${HOME}/.dotfiles/modules/gui/ux/hyprland/config/generated-windowrules.conf"
 
 get_window_details() {
     local client=$(hyprctl activewindow -j)
