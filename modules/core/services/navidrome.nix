@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 let
   cfg = config.core.services.navidrome;
 in
@@ -8,6 +8,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.navidrome ];
     services.navidrome = {
       enable = true;
       settings = {
