@@ -139,7 +139,7 @@
   
   users.users.${myUser} = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "networkmanager" "wheel" "video" "audio" "input" "gamemode" ];
+    extraGroups = [ "adbusers" "networkmanager" "wheel" "video" "audio" "input" "gamemode" "docker" ];
   };
 
   hardware = {
@@ -232,7 +232,14 @@
     jdk24
     jq
     openssl
+
+    # WinBoat
+    inputs.winboat.packages.${system}.winboat
+    freerdp
+    docker-compose
   ];
+
+  virtualisation.docker.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -243,6 +250,9 @@
     roboto-mono
     font-awesome
   ];
+
+
+ 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

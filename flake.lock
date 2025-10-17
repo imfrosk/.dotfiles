@@ -603,6 +603,7 @@
         "nixpkgs": "nixpkgs_4",
         "quickshell": "quickshell",
         "swww": "swww",
+        "winboat": "winboat",
         "zen-browser": "zen-browser"
       }
     },
@@ -659,6 +660,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "winboat": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760343724,
+        "narHash": "sha256-ywupxNDWH3DtJs+yw1ifin8LIJEnNK9RPI5toRlXhYg=",
+        "owner": "TibixDev",
+        "repo": "winboat",
+        "rev": "2f7a2ce7faef517bb7a09000ceb466390dd2b190",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TibixDev",
+        "repo": "winboat",
         "type": "github"
       }
     },

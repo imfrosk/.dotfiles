@@ -30,6 +30,11 @@
        url = "github:quickshell-mirror/quickshell";
        inputs.nixpkgs.follows = "nixpkgs";
     };
+    winboat = {
+      url = "github:TibixDev/winboat";
+      # think needs to be unstable
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixcats.url = "path:/home/frosk/.dotfiles/modules/core/programs/nvim";
     swww.url = "github:LGFae/swww";
