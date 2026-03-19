@@ -1,9 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   home-manager.sharedModules = [ {
-    qt = {
-        enable = true;
-        platformTheme.name = "gtk";
-    };
     home.pointerCursor = {
       gtk.enable = true;
       package = pkgs.google-cursor;
@@ -13,20 +9,17 @@
     gtk = {
       enable = true;
       iconTheme = {
-        package = pkgs.catppuccin-papirus-folders.override {
-          flavor = "macchiato";
-          accent = "lavender";
-        };
-        name = "Papirus-Dark";
+        package = pkgs.gruvbox-dark-icons-gtk;
+        name = "Gruvbox-Dark";
       };
-      theme = {
-          name = "catppuccin-macchiato-mauve-compact";
-          package = pkgs.catppuccin-gtk.override {
-            accents = ["mauve"];
-            variant = "macchiato";
-            size = "compact";
-          };
-      };
+      #theme = {
+      #    name = "catppuccin-macchiato-mauve-compact";
+      #    package = pkgs.catppuccin-gtk.override {
+      #      accents = ["mauve"];
+      #      variant = "macchiato";
+      #      size = "compact";
+      #    };
+      #};
       gtk3.extraConfig = {
         Settings = ''
           gtk-application-prefer-dark-theme=1

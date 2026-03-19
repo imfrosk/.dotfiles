@@ -7,6 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: needs to be nixos-unstable
@@ -30,17 +34,12 @@
        url = "github:quickshell-mirror/quickshell";
        inputs.nixpkgs.follows = "nixpkgs";
     };
-    winboat = {
-      url = "github:TibixDev/winboat";
-      # think needs to be unstable
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nixcats.url = "path:/home/frosk/.dotfiles/modules/core/programs/nvim";
     swww.url = "github:LGFae/swww";
    };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -55,6 +54,7 @@
         modules =
         [ 
           ./host/configuration.nix
+          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager = {

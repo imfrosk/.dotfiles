@@ -15,9 +15,13 @@ in
     home-manager.sharedModules = [ {
       programs.git = {
         enable = true;
-        userName = cfg.userName;
-        userEmail = "184307612+imfrosk@users.noreply.github.com";
-        extraConfig = {
+        #userName = cfg.userName;
+        #userEmail = "184307612+imfrosk@users.noreply.github.com";
+        settings = {
+          user = {
+            email = "184307612+imfrosk@users.noreply.github.com";
+            name = cfg.userName;
+          };
           init.defaultBranch = "main";
         };
       };

@@ -19,11 +19,19 @@
       terminal = false;
       categories = [ "Application" ];
     };
+    r2mod = {
+      name = "r2mod";
+      genericName = "Appimage";
+      exec = "appimage-run /home/frosk/.dotfiles/other/appimage/r2modman.AppImage";
+      terminal = false;
+      categories = [ "Application" ];
+    };
   };
 
   programs = { 
     mpv.enable = true;
     vscode.enable = true;
+    opencode.enable = false;
 
     mangohud = {
       enable = true;
@@ -52,6 +60,8 @@
         cdh = "cd ~/.dotfiles/host/";
         hyprm = "vi ~/.dotfiles/modules/gui/ux/hyprland/config/hyprland.conf";
         hyprd = "cd ~/.dotfiles/modules/gui/ux/hyprland/";
+
+        srn = "sudo systemctl restart navidrome.service";
 
         cg = "cd ~/.dotfiles/modules/gui";
         cga = "cd ~/.dotfiles/modules/gui/apps";
