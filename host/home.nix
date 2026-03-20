@@ -43,11 +43,6 @@
 
     bash = {
       enable = true;
-      bashrcExtra = ''
-        if uwsm check may-start; then
-            exec uwsm start hyprland-uwsm.desktop
-        fi
-      '';
       shellAliases = {
         nano = "nixCats";
         v = "nixCats";
@@ -58,8 +53,6 @@
         la = "ls -la";
         fr = "sudo nixos-rebuild switch --flake ~/.dotfiles";
         cdh = "cd ~/.dotfiles/host/";
-        hyprm = "vi ~/.dotfiles/modules/gui/ux/hyprland/config/hyprland.conf";
-        hyprd = "cd ~/.dotfiles/modules/gui/ux/hyprland/";
 
         srn = "sudo systemctl restart navidrome.service";
 

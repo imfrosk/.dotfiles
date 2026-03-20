@@ -38,6 +38,17 @@ in
               #inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
             ];
           };
+          programs.bash = {
+            bashrcExtra = ''
+              if uwsm check may-start; then
+                  exec uwsm start hyprland-uwsm.desktop
+              fi
+            '';
+            shellAliases = {
+              wcd = "cd ~/.dotfiles/modules/gui/ux/hyprland/";
+              wcc = "vim ~/.dotfiles/modules/gui/ux/hyprland/config/hyprland.conf";
+            };
+          };
           #home.activation.hyprlandSymlink = ''
           #  ln -sfn "${config.home.homeDirectory}/.dotfiles/programs/home/hyprland/config/hypr.conf" \
           #    "${config.home.homeDirectory}/.config/hypr/hypr.conf"
