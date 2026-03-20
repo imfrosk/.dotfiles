@@ -66,7 +66,6 @@
       };
     };
   };
-
   gui = {
     apps = {
       nemo.enable = true;
@@ -74,6 +73,7 @@
     };
     ux = {
       quickshell.enable = false;
+      gnome.enable = false;
       hyprland = {
         enable = true;
         uwsm = true;
@@ -274,7 +274,6 @@
     git
     neofetch
     wget
-    cloudflare-warp
     inputs.swww.packages.${pkgs.system}.swww
 
     # CLI animations

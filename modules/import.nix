@@ -20,6 +20,7 @@
     #./gui/apps/zen-browser.nix
 
     ./gui/ux/hyprland/hypr.nix
+    ./gui/ux/gnome.nix
     ./gui/ux/quickshell/quickshell.nix
 
     ./gui/gaming/default.nix
