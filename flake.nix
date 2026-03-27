@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/master"; 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-25-11.url = "github:nixos/nixpkgs/871b9fd269ff6246794583ce4ee1031e1da71895";
 
     stylix = {
       url = "github:nix-community/stylix";
@@ -39,7 +40,7 @@
     swww.url = "github:LGFae/swww";
    };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-25-11, home-manager, stylix, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -48,8 +49,12 @@
     nixosConfigurations = {
       ash = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs self system; 
-        myUser = "frosk"; 
+        specialArgs = { inherit inputs self system;
+          pkgs-25-11 = import nixpkgs-25-11 {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          myUser = "frosk";
         };
         modules =
         [ 

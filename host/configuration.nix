@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, lib, myUser, ... }:
+{ config, pkgs, pkgs-25-11, inputs, lib, myUser, ... }:
 #let
 #  myUser = "frosk";
 #in
@@ -73,10 +73,10 @@
     };
     ux = {
       quickshell.enable = false;
-      gnome.enable = false;
+      gnome.enable = true;
       hyprland = {
-        enable = true;
-        uwsm = true;
+        enable = false;
+        uwsm = false;
       };
     };
   };
@@ -108,7 +108,7 @@
   # Nix garbage collection
   nix.gc = {
    automatic = true;
-   dates = "weekly";
+   dates = "daily";
    options = "--delete-older-then 7d";
   };
 
@@ -127,7 +127,7 @@
       noCheck = true;
     };
   };
-
+  
   system.activationScripts.mount-point-setup = {
     text = ''
       chown frosk:users /mnt/data
@@ -187,16 +187,20 @@
   programs = {
     lazygit.enable = true;
     appimage.enable = true;
-    waybar.enable = true;
+    #waybar.enable = true;
     nix-ld.enable = true;
     gamescope.enable = true;
-    ssh = {
-      startAgent = true;
-      extraConfig = " 
-        Host github.com
-        IdentityFile ~/.ssh/nixdot
-      ";
-    };
+    localsend.enable = true;
+
+    # Cannot enable this and gnome at the same time
+    
+    #ssh = {
+    #  startAgent = true;
+    #  extraConfig = " 
+    #    Host github.com
+    #    IdentityFile ~/.ssh/nixdot
+    #  ";
+    #};
   };
 
   services = {
@@ -218,9 +222,13 @@
 
   security.polkit.enable = true;
 
+  nixpkgs.config.rocmSupport = true;
+
   # Packages
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+
+    #jamesdsp # different for pulseaudio
 
     # Music
     feishin
@@ -238,7 +246,7 @@
     telegram-desktop
     obs-studio
     orca-slicer
-    blender-hip
+    blender
     modrinth-app
     r2modman
     obsidian
@@ -257,24 +265,26 @@
     pavucontrol
     rofi
     filezilla
+    protonup-qt
 
 
     # TUI
     btop-rocm
     vim
     bluetui
-    inputs.nixcats.packages.${system}.nixCats
+    inputs.nixcats.packages.${stdenv.hostPlatform.system}.nixCats
 
     # CLI
     unrar
     unzip
     p7zip
+    dualsensectl
     gnirehtet
     tree
     git
-    neofetch
+    fastfetch
     wget
-    inputs.swww.packages.${pkgs.system}.swww
+    inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
 
     # CLI animations
     cmatrix
@@ -302,6 +312,15 @@
     #freerdp
     #docker-compose
   ];
+
+  #nixpkgs.overlays = [
+  #  # Overlay: Use `self` and `super` to express
+  #  # the inheritance relationship
+  #  (self: super: {
+  #    alsa-lib = pkgs-25-11.alsa-lib;
+  #    alsa-ucm-conf = pkgs-25-11.alsa-ucm-conf;
+  #  })
+  #];
 
   #virtualisation.docker.enable = true;
 

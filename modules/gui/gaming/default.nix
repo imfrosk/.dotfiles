@@ -35,6 +35,6 @@
   };
   
   services.decky-loader= {
-    enable = true;
+    enable = false;
   };
 }

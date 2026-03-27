@@ -12,14 +12,10 @@ in
     services = { 
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-      gnome = {
-        core-developer-tools.enable = false;
-        games.enable = false;
-      };
     };
     environment.gnome.excludePackages = with pkgs; [
       epiphany
-      nautilus
+      #nautilus
     ];
   };
 }

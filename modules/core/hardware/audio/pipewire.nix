@@ -16,13 +16,13 @@ in
       pulse.enable = true;
       jack.enable = true;
       wireplumber.enable = true;
-      extraConfig.pipewire = {
-        "context.properties" = {
-          "default.clock.quantum" = 64;  # Reduce from default 1024
-          "default.clock.min-quantum" = 32;
-          "default.clock.max-quantum" = 1024;
-        };
-      };
+      #extraConfig.pipewire = {
+      #  "context.properties" = {
+      #    "default.clock.quantum" = 64;  # Reduce from default 1024
+      #    "default.clock.min-quantum" = 32;
+      #    "default.clock.max-quantum" = 1024;
+      #  };
+      #};
     };
   };
 }

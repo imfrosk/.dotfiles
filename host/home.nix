@@ -28,6 +28,8 @@
     };
   };
 
+  services.easyeffects.enable = true;
+
   programs = { 
     mpv.enable = true;
     vscode.enable = true;
@@ -55,6 +57,8 @@
         cdh = "cd ~/.dotfiles/host/";
 
         srn = "sudo systemctl restart navidrome.service";
+
+        dssr = "dualsensectl speaker headphone && dualsensectl volume 255";
 
         cg = "cd ~/.dotfiles/modules/gui";
         cga = "cd ~/.dotfiles/modules/gui/apps";
