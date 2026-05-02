@@ -11,11 +11,24 @@ in
   config = mkIf cfg.enable {
     services = { 
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [ pkgs.mutter ];
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer']
+        '';
+      };
     };
-    environment.gnome.excludePackages = with pkgs; [
-      epiphany
-      #nautilus
-    ];
+    environment = {
+      gnome.excludePackages = with pkgs; [
+        epiphany
+        #nautilus
+      ];
+      systemPackages = with pkgs; [
+        gnome-tweaks
+        gnome-randr
+      ];
+    };
   };
 }

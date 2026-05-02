@@ -3,9 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, pkgs-25-11, inputs, lib, myUser, ... }:
-#let
-#  myUser = "frosk";
-#in
+let
+  komelia = pkgs.callPackage ../other/pkgs/komelia.nix {};
+in
 {
 
   imports =
@@ -53,7 +53,7 @@
     };
     services = {
       navidrome = {
-        enable = true;
+        enable = false;
       };
       sunshine.enable = false;
       zapret.enable = false;
@@ -78,7 +78,7 @@
         enable = false;
         uwsm = false;
       };
-    };
+    }; 
   };
 
 
@@ -105,6 +105,18 @@
     };
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      1337
+      8080
+    ];
+    allowedUDPPorts = [
+      1337
+      8080
+    ];
+  };
+
   # Nix garbage collection
   nix.gc = {
    automatic = true;
@@ -114,28 +126,17 @@
 
   # automount ntfs hdd
   fileSystems = {
-    "/mnt/ntfs" = { 
-      device = "/dev/disk/by-uuid/652140FF608D5959";
-      fsType = "ntfs";
-      options = [ "rw" "uid=1000" "gid=100" "umask=022" "nofail" ];
-        #noCheck = false;
-      };
-    "/mnt/data" = {
-      device = "/dev/disk/by-uuid/5bc706ef-810f-464e-994d-eecdb5ef811e";
-      fsType = "btrfs";
-      options = ["compress=zstd" "noatime" "rw" "users" "nofail"];
+    "/mnt/hdd" = {
+      device = "/dev/disk/by-uuid/0f277c71-752a-4cc1-a13b-4e5007aeeabf";
+      fsType = "ext4";
+      options = ["noatime" "rw" "users" "nofail"];
       noCheck = true;
     };
   };
   
-  system.activationScripts.mount-point-setup = {
-    text = ''
-      chown frosk:users /mnt/data
-      #chown navidrome:navidrome /mnt/data/music
-      #chown navidrome:navidrome /mnt/data/music/*
-      chown frosk:users /mnt/ntfs
-    '';
-  };
+  systemd.tmpfiles.rules = [
+    "d /mnt/hdd 0755 frosk users - -"
+  ];
 
   # swap
   swapDevices = [{
@@ -189,7 +190,6 @@
     appimage.enable = true;
     #waybar.enable = true;
     nix-ld.enable = true;
-    gamescope.enable = true;
     localsend.enable = true;
 
     # Cannot enable this and gnome at the same time
@@ -204,6 +204,7 @@
   };
 
   services = {
+    envfs.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
     komga = {
@@ -226,9 +227,8 @@
 
   # Packages
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-
-    #jamesdsp # different for pulseaudio
+  environment.systemPackages = 
+    with pkgs; [
 
     # Music
     feishin
@@ -242,7 +242,7 @@
     kitty
     brave
     keepassxc
-    vesktop
+    legcord
     telegram-desktop
     obs-studio
     orca-slicer
@@ -266,12 +266,18 @@
     rofi
     filezilla
     protonup-qt
+    ludusavi
+    lutris-unwrapped
+    koreader
+    komelia
+    popsicle
 
 
     # TUI
     btop-rocm
     vim
     bluetui
+    greetd
     inputs.nixcats.packages.${stdenv.hostPlatform.system}.nixCats
 
     # CLI
@@ -284,6 +290,7 @@
     git
     fastfetch
     wget
+    wakeonlan
     inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
 
     # CLI animations
@@ -305,7 +312,13 @@
     btrfs-progs
     jq
     openssl
-    bluez
+    libinput
+    jdk
+    exfatprogs
+    #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-lib
+    #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-ucm-conf
+    
+    #bluez
 
     # WinBoat
     #inputs.winboat.packages.${system}.winboat
@@ -319,6 +332,10 @@
   #  (self: super: {
   #    alsa-lib = pkgs-25-11.alsa-lib;
   #    alsa-ucm-conf = pkgs-25-11.alsa-ucm-conf;
+  #    bluez = pkgs-25-11.bluez;
+  #    libsndfile = pkgs-25-11.libsndfile;
+  #    libpulseaudio = pkgs-25-11.libpulseaudio;
+  #    libao = pkgs-25-11.libao;
   #  })
   #];
 

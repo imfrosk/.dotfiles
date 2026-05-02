@@ -28,20 +28,79 @@
     };
   };
 
-  services.easyeffects.enable = true;
+  #services.easyeffects.enable = true;
 
   programs = { 
-    mpv.enable = true;
+    mpv = { 
+      enable = true;
+      config = {
+        profile = "gpu-hq";
+        vo = "gpu-next";
+        hwdec = "auto";
+        ytdl-format = "bestvideo+bestaudio";
+        target-colorspace-hint = true;
+
+        # interpolation
+        video-sync = "display-resample"; 
+        interpolation = true;
+
+      };
+      profiles = {
+        "HDR_MODE:DOVI" = {
+          profile-restore = "copy";
+          target-trc = "pq";
+          target-prim = "bt.2020";
+          #Adjust this to the peak brightness of your display. e.g. 800 for LG CX
+          target-peak = "1000"; 
+          tone-mapping-mode = "auto";
+          tone-mapping = "bt.2446a";
+        };
+        "HDR_MODE:SDR" = {
+          profile-restore = "copy";
+          gpu-api = "vulkan";
+          target-trc = "pq";
+          target-prim = "bt.2020";
+          #Seems to be some kind of magic number, higher values do not have any effect 
+          target-peak= "207";
+          tone-mapping= "bt.2390";
+          tone-mapping-mode = "rgb";
+          inverse-tone-mapping = true;
+        };
+        "HDR_MODE:SDR_HDR_EFFECT" = {
+          profile-restore = "copy";
+          target-trc = "pq";
+          target-prim = "bt.2020";
+          # Higher value = stronger effect
+          target-peak = "406";
+          tone-mapping = "spline";
+          # All other values make the colors look awful in my opinion. 
+          tone-mapping-mode = "rgb";
+          inverse-tone-mapping = true; 
+        };
+      };
+      bindings = {
+        "Alt+k" = "apply-profile HDR_MODE:DOVI";
+        "CTRL+Shift+1" = "apply-profile HDR_MODE:DOVI restore";
+
+        "CTRL+2" = "apply-profile HDR_MODE:SDR";
+        "CTRL+Shift+2" = "apply-profile HDR_MODE:SDR restore";
+
+        "CTRL+3" = "apply-profile HDR_MODE:SDR_HDR_EFFECT";
+        "CTRL+Shift+3" = "apply-profile HDR_MODE:SDR_HDR_EFFECT restore";
+
+        "CTRL+WHEEL_UP" = "add target-peak 1";
+        "CTRL+WHEEL_DOWN" = "add target-peak -1";
+      };
+    };
     vscode.enable = true;
     opencode.enable = false;
 
-    mangohud = {
-      enable = true;
-      settings = {
-        fps_limit = 75;
-        preset = 4;
-      };
-    };
+    #mangohud = {
+    #  enable = true;
+    #  settings = {
+    #    preset = 4;
+    #  };
+    #};
 
     bash = {
       enable = true;
@@ -58,15 +117,18 @@
 
         srn = "sudo systemctl restart navidrome.service";
 
-        dssr = "dualsensectl speaker headphone && dualsensectl volume 255";
+        dss = "dualsensectl volume 255";
 
         cg = "cd ~/.dotfiles/modules/gui";
         cga = "cd ~/.dotfiles/modules/gui/apps";
         cgu = "cd ~/.dotfiles/modules/gui/ux/";
+        cgg = "cd ~/.dotfiles/modules/gui/gaming/";
         cc = "cd ~/.dotfiles/modules/core";
         cch = "cd ~/.dotfiles/modules/core/hardware/";
         ccp = "cd ~/.dotfiles/modules/core/programs/";
         ccs = "cd ~/.dotfiles/modules/core/services/";
+
+        fwl = "";
 
         lg = "lazygit -p ~/.dotfiles";
         sr = "sudo systemctl restart sing-box.service";

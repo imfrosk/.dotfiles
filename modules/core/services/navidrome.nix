@@ -13,8 +13,8 @@ in
       enable = true;
       openFirewall = true;
       settings = {
-        MusicFolder = "/mnt/ntfs/music";
-        Address = "0.0.0.0";
+        MusicFolder = "/mnt/hhd/.xfs/music";
+        Address = "127.0.0.1";
 
         #Backup.Path = "/home/frosk/.xf/backups/Programs/navidrome";
         #Backup.Count = "6";

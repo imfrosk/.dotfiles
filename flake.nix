@@ -12,11 +12,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: needs to be nixos-unstable
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.51.0";

@@ -24,6 +24,8 @@
     ./gui/ux/quickshell/quickshell.nix
 
     ./gui/gaming/default.nix
+    ./gui/gaming/dualsense/dualsense-fixes.nix # remove later, after update fixing it
+
     ./gui/.themes/home.nix
   ];
 }

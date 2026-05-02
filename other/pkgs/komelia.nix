@@ -1,43 +1,60 @@
-{ lib
-, stdenv
+{ stdenv
+, lib
 , fetchurl
-, jdk17
-, gradle
 , makeWrapper
+, jdk17
+, zstd
+, libGL
+, glib
+, libusb1
+, udev
+, xorg
+, libpulseaudio
+, alsa-lib
+, writeShellScriptBin
 }:
 
 stdenv.mkDerivation rec {
   pname = "komelia";
-  version = "unstable-2025-01-27";
+  version = "0.18.4";
 
   src = fetchurl {
-    url = "https://github.com/Snd-R/Komelia/releases/download/0.17.0/Komelia-0.17.0-linux-x64.jar";
-    sha256 = "sha256-G2ypWE0bLraqlHIcD53raIT/6zNcxe6roN00kgji9Ic=";
+    url = "https://github.com/Snd-R/Komelia/releases/download/${version}/Komelia-${version}-linux-x64.jar";
+    sha256 = "Vs+rXBLFYA0T0K5HT3rAHktog/nO5QwrU9vY3bRfgTU="; # Replace with actual hash
   };
 
-  nativeBuildInputs = [ jdk17 gradle makeWrapper ];
+  nativeBuildInputs = [ makeWrapper ];
+  
+  buildInputs = [
+    jdk17
+    zstd
+    libGL
+    glib
+    libusb1
+    udev
+    libpulseaudio
+    alsa-lib
+    stdenv.cc.cc.lib
+  ];
 
-  buildPhase = ''
-    # Skip native builds and use whatever is in the repo
-    ./gradlew --no-daemon :komelia-app:repackageUberJar -x komeliaBuildNonJvmDependencies
-  '';
+  dontUnpack = true;
 
   installPhase = ''
-    mkdir -p $out/bin $out/share/komelia
+    mkdir -p $out/share/java $out/bin
     
-    find . -name "*.jar" -path "*/compose/jars/*" -exec cp {} $out/share/komelia/komelia.jar \;
-
+    cp $src $out/share/java/komelia.jar
+    
     makeWrapper ${jdk17}/bin/java $out/bin/komelia \
-      --add-flags "-jar $out/share/komelia/komelia.jar"
+      --add-flags "-jar $out/share/java/komelia.jar" \
+      --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs} \
+      --set JAVA_HOME ${jdk17}
   '';
 
-  GRADLE_USER_HOME = "/tmp/gradle-home";
-
   meta = with lib; {
-    description = "A modern and efficient client for Komga";
+    description = "Komga media client";
     homepage = "https://github.com/Snd-R/Komelia";
-    license = licenses.mit;
-    platforms = platforms.all;
-    mainProgram = "komelia";
+    license = licenses.mit;  # Check actual license
+    maintainers = with maintainers; [ ];
+    platforms = [ "x86_64-linux" ];
   };
 }
