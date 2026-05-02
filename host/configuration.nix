@@ -13,8 +13,21 @@ in
       ./hardware-configuration.nix
       ./../modules/import.nix
     ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+    };
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-then 7d";
+    };
+  };
+  nixpkgs.config = { 
+    allowUnfree = true;
+    rocmSupport = true;
+  };
 
   #nixpkgs.overlays = [
   #  (final: prev: {
@@ -26,6 +39,9 @@ in
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
     polarity = "dark";
+    targets.qt = {
+      platform = lib.mkForce "qtct";
+    };
   };
 
 
@@ -115,13 +131,6 @@ in
       1337
       8080
     ];
-  };
-
-  # Nix garbage collection
-  nix.gc = {
-   automatic = true;
-   dates = "daily";
-   options = "--delete-older-then 7d";
   };
 
   # automount ntfs hdd
@@ -222,8 +231,6 @@ in
   #virtualisation.waydroid.enable = true;
 
   security.polkit.enable = true;
-
-  nixpkgs.config.rocmSupport = true;
 
   # Packages
   # $ nix search wget
