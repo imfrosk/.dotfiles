@@ -6,36 +6,36 @@
     home-manager.url = "github:nix-community/home-manager/master"; 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-25-11.url = "github:nixos/nixpkgs/871b9fd269ff6246794583ce4ee1031e1da71895";
+    nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.51.0";
-      #rev = "91f592a87509436dc6f6ea7b3d6705ed7c5af046";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hypr-dynamic-cursors = {
-       url = "github:VirtCode/hypr-dynamic-cursors";
-       inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland/v0.51.0";
+    #   #rev = "91f592a87509436dc6f6ea7b3d6705ed7c5af046";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hypr-dynamic-cursors = {
+    #    url = "github:VirtCode/hypr-dynamic-cursors";
+    #    inputs.hyprland.follows = "hyprland";
+    # };
 
-    quickshell = {
-       url = "github:quickshell-mirror/quickshell";
-       inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # quickshell = {
+    #    url = "github:quickshell-mirror/quickshell";
+    #    inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nixcats.url = "path:/home/frosk/.dotfiles/modules/core/programs/nvim";
     swww.url = "github:LGFae/swww";
    };
 
-  outputs = { self, nixpkgs, nixpkgs-25-11, home-manager, stylix, ... }@inputs: 
+  outputs = { self, nixpkgs, nix-stable, home-manager, stylix, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -45,7 +45,7 @@
       ash = lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs self system;
-          pkgs-25-11 = import nixpkgs-25-11 {
+          pkgs-stable = import nix-stable {
             inherit system;
             config.allowUnfree = true;
           };
