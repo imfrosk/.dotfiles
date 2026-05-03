@@ -13,6 +13,8 @@ in
       programs.yt-dlp = {
         enable = true;
         settings = {
+          no-keep-fragments = true;
+          retries = "infinite";
           embed-thumbnail = true;
           embed-subs = true;
           embed-metadata = true;
