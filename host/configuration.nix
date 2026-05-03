@@ -3,9 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, pkgs-25-11, inputs, lib, myUser, ... }:
-let
-  komelia = pkgs.callPackage ../other/pkgs/komelia.nix {};
-in
 {
 
   imports =
@@ -198,7 +195,7 @@ in
     lazygit.enable = true;
     appimage.enable = true;
     #waybar.enable = true;
-    nix-ld.enable = true;
+    #nix-ld.enable = true;
     localsend.enable = true;
 
     # Cannot enable this and gnome at the same time
@@ -240,8 +237,8 @@ in
     # Music
     feishin
     lrcget
-    puddletag
-    picard
+    #puddletag
+    #picard
     #deadbeef
     flac
 
@@ -254,30 +251,29 @@ in
     obs-studio
     orca-slicer
     blender
-    modrinth-app
-    r2modman
+    #modrinth-app
+    #r2modman
     obsidian
     kdePackages.kate
     #lutris
-    krita
+    #krita
     qimgv
     gimp
     qbittorrent
-    aseprite
+    #aseprite
     peazip
     putty
     anki-bin
     ankiAddons.anki-connect
     gparted
     pavucontrol
-    rofi
+    #rofi
     filezilla
-    protonup-qt
-    ludusavi
-    lutris-unwrapped
+    #protonup-qt
+    #ludusavi
+    #lutris-unwrapped
     koreader
-    komelia
-    popsicle
+    #popsicle
 
 
     # TUI
@@ -292,7 +288,7 @@ in
     unzip
     p7zip
     dualsensectl
-    gnirehtet
+    #gnirehtet
     tree
     git
     fastfetch
@@ -308,11 +304,11 @@ in
     sl
 
     # Screenshots & OCR
-    grim
-    swappy
-    slurp
-    wl-clipboard-rs
-    tesseract
+    #grim
+    #swappy
+    #slurp
+    #wl-clipboard-rs
+    #tesseract
 
     # Dependencies
     ntfs3g
