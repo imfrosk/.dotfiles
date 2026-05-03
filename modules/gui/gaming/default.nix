@@ -48,7 +48,7 @@
           "--xwayland-count 2"
           #"--expose-wayland"
           #"--backend wayland"
-          "-e"
+          "--steam"
        
           "--adaptive-sync"
           "--hdr-enabled"
@@ -60,7 +60,7 @@
           "--prefer-output DP-2"
           "--output-width 2560"
           "--output-height 1440"
-          "-r 200.0"
+          "--nested-refresh 200.0"
         ];
         steamArgs = [
           "-tenfoot"
@@ -86,6 +86,18 @@
     gamescope = {
       enable = true;
       capSysNice = true;
+      args = [
+          #"--xwayland-count 2"
+          #"--expose-wayland"
+          #"--backend wayland"
+          #"--steam"
+          #"--adaptive-sync"
+          "--nested-width 2560"
+          "--nested-height 1440"
+          #"--fullscreen"
+          "--nested-refresh 200.0"
+          #"--framerate-limit 200.0"
+      ];
     };
   };
 
