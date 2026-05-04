@@ -46,16 +46,4 @@ in
   #'';
 
   #boot.kernelModules = [ "hid-playstation" ];
-
-  home-manager.users = { 
-    decky = { config, ... }: {
-      home.stateVersion = "25.05";
-      programs.bash = {
-        enable = true;
-        shellAliases = {
-          dss = "sudo dualsensectl volume 255";
-        };
-      };
-    };
-  };
 }

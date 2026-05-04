@@ -11,9 +11,14 @@
       ./../modules/import.nix
     ];
   nix = {
+    optimise = {
+      automatic = true;
+      dates = "weekly";
+    };
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
+      auto-optimise-store = true;
     };
     gc = {
       automatic = true;
