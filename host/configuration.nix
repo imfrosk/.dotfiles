@@ -89,6 +89,7 @@
       nemo.enable = true;
       #zen-browser.enable = false;
     };
+    gaming.enable = false;
     ux = {
       quickshell.enable = false;
       gnome.enable = true;
