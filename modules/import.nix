@@ -1,7 +1,8 @@
-{ pkgs, lib, ... }:
+{ inputs, ... }:
 
 {
   imports = [
+    "${inputs.private_configs}/default.nix"
     ./core/hardware/gpu/nvidia.nix
     ./core/hardware/gpu/amd.nix
     ./core/hardware/audio/pipewire.nix

@@ -1,2 +1,5 @@
 **/wallpapers
 **/appimage
+.private/
+.private/*
+other-pkgs/*

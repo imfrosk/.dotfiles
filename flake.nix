@@ -3,14 +3,20 @@
   description = "main flake";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/master"; 
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    private_configs = {
+      url = "path:/home/frosk/.private";
+      flake = false;
     };
 
     # hyprland = {

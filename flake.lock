@@ -294,12 +294,26 @@
         "type": "github"
       }
     },
+    "private_configs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778088354,
+        "narHash": "sha256-Ddz5iaqKIWfrSaiZdtiAHflHyGCtGf9e3WtNFLvPU/E=",
+        "path": "/home/frosk/.private",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/frosk/.private",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-stable": "nix-stable",
         "nixcats": "nixcats",
         "nixpkgs": "nixpkgs_2",
+        "private_configs": "private_configs",
         "stylix": "stylix",
         "swww": "swww"
       }

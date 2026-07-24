@@ -28,7 +28,7 @@
     };
   };
 
-  #services.easyeffects.enable = true;
+  services.easyeffects.enable = false;
 
   programs = { 
     mpv = { 
@@ -132,6 +132,8 @@
 
         lg = "lazygit -p ~/.dotfiles";
         sr = "sudo systemctl restart sing-box.service";
+
+        fb2c = "nix-ld ~/.dotfiles/other/other-pkgs/fbc";
       };
     };
   };

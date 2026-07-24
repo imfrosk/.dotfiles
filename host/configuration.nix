@@ -89,7 +89,7 @@
       nemo.enable = true;
       #zen-browser.enable = false;
     };
-    gaming.enable = false;
+    gaming.enable = true;
     ux = {
       quickshell.enable = false;
       gnome.enable = true;
@@ -129,6 +129,8 @@
     allowedTCPPorts = [
       1337
       8080
+      8765
+      39033 #qbittorrent
     ];
     allowedUDPPorts = [
       1337
@@ -201,8 +203,11 @@
     lazygit.enable = true;
     appimage.enable = true;
     #waybar.enable = true;
-    #nix-ld.enable = true;
+    nix-ld.enable = true;
     localsend.enable = true;
+    gnupg.agent = {
+      enable = true;
+    };
 
     # Cannot enable this and gnome at the same time
     
@@ -219,12 +224,14 @@
     envfs.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
+    jackett.enable = true;
     komga = {
       enable = false;
       settings = {
         server.port = 8090;
       };
     };
+    suwayomi-server.enable = true;
     kavita = {
       enable = false;
       tokenKeyFile = "/home/frosk/.temp-secrets/kavita-token";
@@ -233,7 +240,9 @@
 
   #virtualisation.waydroid.enable = true;
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+  };
 
   # Packages
   # $ nix search wget
@@ -251,6 +260,7 @@
     # GUI Apps
     kitty
     brave
+    super-productivity
     keepassxc
     legcord
     telegram-desktop
@@ -293,6 +303,12 @@
     unrar
     unzip
     p7zip
+    nh
+    pinentry-qt
+
+    net-tools
+
+
     dualsensectl
     #gnirehtet
     tree
@@ -324,6 +340,7 @@
     libinput
     jdk
     exfatprogs
+    vulkan-tools
     #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-lib
     #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-ucm-conf
     
