@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   home-manager.sharedModules = [ {
     home.pointerCursor = {
+      enable = true;
       gtk.enable = true;
       package = pkgs.google-cursor;
       name = "GoogleDot-Black";
@@ -19,7 +20,7 @@
         '';
       };
       gtk4 = {
-        theme = null;
+        theme = lib.mkForce null;
         extraConfig = {
           Settings = ''
             gtk-application-prefer-dark-theme=1

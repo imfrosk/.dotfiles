@@ -109,6 +109,9 @@
   # Boot
   boot = { 
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    
     supportedFilesystems = [ "ntfs" ];
     loader = {
       efi = {
@@ -225,13 +228,17 @@
     gvfs.enable = true;
     udisks2.enable = true;
     jackett.enable = true;
+    flaresolverr.enable = true;
+    udev.extraRules = ''
+      SUBSYSTEM=="video4linux", MODE="0666"
+    '';
     komga = {
       enable = false;
       settings = {
         server.port = 8090;
       };
     };
-    suwayomi-server.enable = true;
+    suwayomi-server.enable = false;
     kavita = {
       enable = false;
       tokenKeyFile = "/home/frosk/.temp-secrets/kavita-token";
@@ -262,13 +269,14 @@
     brave
     super-productivity
     keepassxc
-    legcord
+    goofcord
+    webcord
     telegram-desktop
     obs-studio
     orca-slicer
     blender
     #modrinth-app
-    #r2modman
+    r2modman
     obsidian
     kdePackages.kate
     #lutris
@@ -290,7 +298,8 @@
     #lutris-unwrapped
     koreader
     #popsicle
-
+    pomodoro-gtk
+    flclash
 
     # TUI
     btop-rocm
@@ -316,7 +325,6 @@
     fastfetch
     wget
     wakeonlan
-    inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
 
     # CLI animations
     cmatrix
@@ -324,6 +332,7 @@
     pipes
     ttysvr
     sl
+    scrcpy
 
     # Screenshots & OCR
     #grim
@@ -341,6 +350,8 @@
     jdk
     exfatprogs
     vulkan-tools
+    tesseract
+    v4l-utils
     #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-lib
     #inputs.nixpkgs-25-11.legacyPackages.${pkgs.system}.alsa-ucm-conf
     

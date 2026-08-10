@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    #nix-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     stylix = {
       url = "github:nix-community/stylix";
@@ -38,10 +38,10 @@
     # };
 
     nixcats.url = "path:/home/frosk/.dotfiles/modules/core/programs/nvim";
-    swww.url = "github:LGFae/swww";
+    #swww.url = "github:LGFae/swww";
    };
 
-  outputs = { self, nixpkgs, nix-stable, home-manager, stylix, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -51,10 +51,6 @@
       ash = lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs self system;
-          pkgs-stable = import nix-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
           myUser = "frosk";
         };
         modules =

@@ -28,6 +28,7 @@ in
       systemPackages = with pkgs; [
         gnome-tweaks
         gnome-randr
+        gnomeExtensions.gocr
       ];
     };
   };

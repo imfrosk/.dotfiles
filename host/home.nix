@@ -19,12 +19,12 @@
       terminal = false;
       categories = [ "Application" ];
     };
-    r2mod = {
-      name = "r2mod";
-      genericName = "Appimage";
-      exec = "appimage-run /home/frosk/.dotfiles/other/appimage/r2modman.AppImage";
+    PineconeMC = {
+      name = "PineconeMC";
+      genericName = "Launcher";
+      exec = "appimage-run /home/frosk/.xf/.system/apps/PineconeMC/PineconeMC.AppImage";
       terminal = false;
-      categories = [ "Application" ];
+      #categories = [ "Application" ];
     };
   };
 
@@ -128,12 +128,12 @@
         ccp = "cd ~/.dotfiles/modules/core/programs/";
         ccs = "cd ~/.dotfiles/modules/core/services/";
 
-        fwl = "";
-
         lg = "lazygit -p ~/.dotfiles";
         sr = "sudo systemctl restart sing-box.service";
 
         fb2c = "nix-ld ~/.dotfiles/other/other-pkgs/fbc";
+        
+        webcamera = "scrcpy --video-source=camera --camera-size=1920x1080 --camera-facing=front --v4l2-sink=/dev/video0 --no-playback";
       };
     };
   };
